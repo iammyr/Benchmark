@@ -3,6 +3,7 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
+# $ cp `grep -r "cwe>89<" src/main/java/org/owasp/webgoat/benchmark/testcode/ | sed -r 's/xml.+/java/g'` src/main/java/org/owasp/webgoat/benchmark/sql_injection_test_cases/
 
 __author__ = "iammyr"
 __date__ = "$17-Jun-2015 14:40:15$"
@@ -56,7 +57,7 @@ if __name__ == "__main__":
     args_parser.add_argument("-md", "--maindir", required=True, dest="main_dir")
     args = args_parser.parse_args()
 
-    tests = recursive_dir_traversal(args.main_dir + '/src/main/java/org/owasp/webgoat/benchmark/testcode/')
+    tests = recursive_dir_traversal(args.main_dir + '/src/main/java/org/owasp/webgoat/benchmark/sql_injection_test_cases/')
     print createIndexHtml(len(tests))
     saveToFile(createIndexHtml(len(tests)), args.main_dir + '/src/main/webapp/WEB-INF/index.html')
     print createDescriptorXml(tests)
