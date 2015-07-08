@@ -17,7 +17,7 @@ do
 	echo $file
 	numid=$(echo $file | sed -r 's/[^0-9]+//g')
 	numid=$(echo $numid | sed -r 's/^[^1-9]*//g')
-        url=$2$numid
+        url=$2$numid?foo=1
 	echo Running SQLMap on $url ...
 	echo Running SQLMap on $url ... >> results.out
 	python $3 --level=5 --risk=3 --dbms=hsqldb -u $url >> results.out
